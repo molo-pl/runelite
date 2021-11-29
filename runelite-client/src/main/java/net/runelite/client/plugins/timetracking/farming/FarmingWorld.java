@@ -44,7 +44,7 @@ import net.runelite.api.coords.WorldPoint;
 import net.runelite.client.plugins.timetracking.Tab;
 
 @Singleton
-class FarmingWorld
+public class FarmingWorld
 {
 	@SuppressWarnings("PMD.ImmutableField")
 	private Multimap<Integer, FarmingRegion> regions = HashMultimap.create();

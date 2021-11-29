@@ -27,7 +27,7 @@ package net.runelite.client.plugins.timetracking.farming;
 import lombok.Value;
 
 @Value
-class ProfilePatch
+public class ProfilePatch
 {
 	FarmingPatch patch;
 	String rsProfileKey;

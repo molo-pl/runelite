@@ -539,8 +539,7 @@ public class FarmingTracker
 		firstNotifyCheck = false;
 	}
 
-	@VisibleForTesting
-	void sendNotification(RuneScapeProfile profile, PatchPrediction prediction, FarmingPatch patch)
+	public String getNotificationMessage(RuneScapeProfile profile, PatchPrediction prediction, FarmingPatch patch)
 	{
 		final RuneScapeProfileType profileType = profile.getType();
 
@@ -597,11 +596,11 @@ public class FarmingTracker
 			case GROWING:
 				if (prediction.getProduce().getName().toLowerCase(Locale.ENGLISH).contains("compost"))
 				{
-					stringBuilder.append(" is ready to collect in ");
+					stringBuilder.append(" is ready to be collected in ");
 				}
 				else
 				{
-					stringBuilder.append(" is ready to harvest in ");
+					stringBuilder.append(" is ready to be harvested in ");
 				}
 				break;
 			case DISEASED:
@@ -619,6 +618,12 @@ public class FarmingTracker
 			.append(patch.getRegion().getName())
 			.append(".");
 
-		notifier.notify(stringBuilder.toString());
+		return stringBuilder.toString();
+	}
+
+	@VisibleForTesting
+	void sendNotification(RuneScapeProfile profile, PatchPrediction prediction, FarmingPatch patch)
+	{
+		notifier.notify(getNotificationMessage(profile, prediction, patch));
 	}
 }

@@ -35,7 +35,7 @@ import net.runelite.client.plugins.timetracking.TimeTrackingConfig;
 	access = AccessLevel.PACKAGE
 )
 @Getter
-class FarmingPatch
+public class FarmingPatch
 {
 	@Setter(AccessLevel.PACKAGE)
 	private FarmingRegion region;
@@ -43,12 +43,12 @@ class FarmingPatch
 	private final Varbits varbit;
 	private final PatchImplementation implementation;
 
-	String configKey()
+	public String configKey()
 	{
 		return region.getRegionID() + "." + varbit.getId();
 	}
 
-	String notifyConfigKey()
+	public String notifyConfigKey()
 	{
 		return TimeTrackingConfig.NOTIFY + "." + region.getRegionID() + "." + varbit.getId();
 	}

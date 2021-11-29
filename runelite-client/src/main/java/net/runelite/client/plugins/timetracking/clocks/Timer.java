@@ -33,7 +33,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-class Timer extends Clock
+public class Timer extends Clock
 {
 	// the total number of seconds that the timer should run for
 	private long duration;
@@ -57,7 +57,7 @@ class Timer extends Clock
 	}
 
 	@Override
-	long getDisplayTime()
+	public long getDisplayTime()
 	{
 		if (!active)
 		{
